@@ -1,0 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:fb="http://ogp.me/ns/fb#">
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<script src="//connect.facebook.net/en_US/sdk.js"></script>
+<title>Hello App Engine</title>
+</head>
+
+<body onload="loadFb()">
+	<script>
+
+		function statusChangeCallback(response) {
+			alert('statusChangeCallback');
+			alert(response.status);
+		}
+
+		window.fbAsyncInit = function() {
+			FB.init({
+				appId : '1599173386971027',
+				xfbml : true,
+			version : 'v2.2'
+			});
+			FB.getLoginStatus(function(response) {
+				statusChangeCallback(response);
+			});
+		};
+
+		// Load the SDK asynchronously
+		(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) {
+				return;
+			}
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));
+
+	</script>
+	<h1>Hello App Engine!</h1>
+
+	<table>
+		<tr>
+			<td colspan="2" style="font-weight: bold;">Available Servlets:</td>
+		</tr>
+		<tr>
+			<td><a href="clock_app">Clock_app</a></td>
+			<td>Hello!!</td>
+
+		</tr>
+	</table>
+
+<!-- 	<fb:login-button scope="public_profile,email" -->
+<!-- 		onlogin="checkLoginState();"></fb:login-button> -->
+</body>
+</html>
